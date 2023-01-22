@@ -1,0 +1,8 @@
+ 1001	        Nirajan	         Dhakal	  45	      Male	        Pokhara	      980000000	          nirajan.44@gmail.com	 nirajan33
+ 1002	          gokul	         pathak	  20	      male	        baglung	       88888888	               gokul@gmail.com	   gokul33
+ 1003	          Sujan	         Dhakal	  45	      male	        pokhara	     9876546787	        sujan.dhakal@gmail.com	 nirajan22
+ 1004	          Madan	         Dhakal	  25	      Male	        Pokhara	     9840294335	         madandhakal@gmail.com	   madan33
+ 1005	          Shiva	         Dhakal	  40	      Male	          Kaski	     9846622663	               shiva@gmail.com	   shiva33
+ 1006	          Manan	       Dhungana	  22	      Male	       Lekhnath	     9877766698	               manan@gmail.com	   manan98
+ 1007	        Nirajan	         Dhakal	  20	      Male	        Pokhara	     9840294335	    nirajandhakal634@gmail.com	Nirajan@123
+ 1008	       Rabindra	         Dhakal	  21	      Male	        POkhara	   980000000000	            rabindra@gmail.com	rabindra@123
