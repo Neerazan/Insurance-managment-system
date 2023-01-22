@@ -6,3 +6,4 @@
  1006	          Manan	       Dhungana	  22	      Male	       Lekhnath	     9877766698	               manan@gmail.com	   manan98
  1007	        Nirajan	         Dhakal	  20	      Male	        Pokhara	     9840294335	    nirajandhakal634@gmail.com	Nirajan@123
  1008	       Rabindra	         Dhakal	  21	      Male	        POkhara	   980000000000	            rabindra@gmail.com	rabindra@123
+ 1009	         sangam	       adhikari	  21	      Male	             09	  9800000000009	               sangam@gmai.com	sangam@123
