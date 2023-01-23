@@ -8,7 +8,7 @@ void claim_process(int ID);
 void all_user();
 void subscribe_plan(int ID);
 void customer_details();
-void user_menu(int id, char pass[]);
+void user_menu(int id);
 void user_login();
 void admin();
 void admin_menu();
@@ -122,7 +122,7 @@ void user_login()
                 printf("\n\n\n\t\t\t\tLogin Successfully!!!");
                 printf("\n\t\t\t\tPress any key to continue to the Menu");
                 getch();
-                user_menu(ID, password_db);
+                user_menu(ID);
                 return;
             }
         }
@@ -146,7 +146,7 @@ void user_login()
 }
 
 // ................ MENU function...........................//
-void user_menu(int ID, char pass[])
+void user_menu(int ID)
 {
     int choose;
 top:
@@ -926,9 +926,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan 120");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type, claim_type, claimable_amount[0], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[0]);
+                        printf("\n\n\t\t\t\t Annually claimable amount : %.2f", claimable_amount[0]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
@@ -945,9 +945,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan:150");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type1, claim_type, claimable_amount[1], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[1]);
+                        printf("\n\n\t\t\t\tAnually claimable amount : %.2f", claimable_amount[1]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
@@ -964,9 +964,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan 200");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type2, claim_type, claimable_amount[2], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[2]);
+                        printf("\n\n\t\t\t\tAnually claimable amount : %.2f", claimable_amount[2]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
@@ -987,7 +987,7 @@ void subscribe_plan(int ID)
                     }
                     else
                     {
-                        return;
+                        return user_menu(ID);
                     }
                 }
             }
@@ -1007,9 +1007,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan:120");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type3, claim_type1, claimable_amount[3], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[3]);
+                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[3]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
@@ -1025,9 +1025,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan 150");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type4, claim_type1, claimable_amount[4], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[4]);
+                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[4]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
@@ -1043,9 +1043,9 @@ void subscribe_plan(int ID)
                     {
                         printf("\n\t\t\t\tYou have selected plan:200");
                         fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d%d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type5, claim_type1, claimable_amount[5], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tclaimable amount : %.2f", claimable_amount[5]);
+                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[5]);
                         fclose(fm);
-                        return;
+                        return user_menu(ID);
                     }
                     else
                     {
