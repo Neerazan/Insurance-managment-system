@@ -1,8 +1,3 @@
- 1002	          gokul	         pathak	  20	      male	        baglung	  plan:120	  lifetime	600000.00	18 7 2021
- 1003	          Sujan	         Dhakal	  45	      male	        pokhara	  plan:200	  lifetime	 1000000.00	18 7 2021
- 1004	          Madan	         Dhakal	  25	      Male	        Pokhara	  plan:150	  lifetime	750000.00	18 7 2021
- 1005	          Shiva	         Dhakal	  40	      Male	          Kaski	  plan:200	    annual	 200000.00	24 7 2021
- 1006	          Manan	       Dhungana	  22	      Male	       Lekhnath	  plan:200	  lifetime	 1000000.00	5 82021
- 1001	        Nirajan	         Dhakal	  45	      Male	        Pokhara	  plan:200	    annual	 200000.00	14 0 2023
- 1008	       Rabindra	         Dhakal	  21	      Male	        POkhara	  plan:150	  lifetime	750000.00	18 0 2023
- 1008	       Rabindra	         Dhakal	  21	         0	        POkhara	  plan:200	    annual	 200000.00	21 0 2023
+ 1003	           Arun	           Saru	  20	      Male	        Pokhara	  plan:120	  lifetime	600000.00	24 1 2023
+ 1001	          Tilak	        Sapkota	  22	      Male	        Pokhara	  plan:150	  lifetime	750000.00	24 1 2023
+ 1002	          Gokul	         Pathak	  21	      Male	        Pokhara	  plan:200	    annual	 200000.00	24 1 2023

@@ -1,27 +1,35 @@
-#include<stdio.h>
-#include<conio.h>
-#include<stdlib.h>
+#include <stdio.h>
+#include <conio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <time.h>
 
-void main()
+void transaction_details_admin();
+
+void main(){
+    transaction_details_admin();
+}
+void transaction_details_admin()
 {
-	FILE *fs;
-	int ID_db;
+    int ID;
     int tr_id;
     char first_name[20];
     char second_name[20];
-    int cost;
-    int day, month, year;
-    fs = fopen("Transaction.txt","r");
-    if(fs == NULL)
+    float cost;
+    int year, month, day;
+
+
+    FILE *fn;
+    fn = fopen("Transaction.txt", "r");
+    if (fn == NULL)
     {
-    	printf("\t\t\t\tFile could not be open");
-	}
-	//1  1002           gokul pathak   50000.00 19/7/2021
-	printf("Hello world 2");
-    while(fscanf(fs,"%d %d %s %s %f %d %d %d",&tr_id,&ID_db,first_name,second_name,&cost,&day,&month,&year)==8)
+        printf("\n\t\t\t\tFile could not be open!");
+        getch();
+        return;
+    }
+    while (fscanf(fn, "%d %d %s %s %f %d %d %d", &tr_id, &ID, first_name, second_name, &cost, &day, &month, &year) == 8)
     {
-    	printf("Hello world\n");
-    	printf("%d %d", tr_id, ID_db);getch();
-    	printf("%s", first_name);
-	}
+        printf("%d %5d %10s %5s %10.2f %10d %d %d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
+    }
+    fclose(fn);
 }

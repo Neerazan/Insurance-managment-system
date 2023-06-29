@@ -30,13 +30,13 @@ void main()
     int option;
 main:
     system("cls");
-    printf("\n\n\n\t\t\t\t\t\t\t\t-----------------------------------\n\t\t\t\t\t\t\t\t||\tWELCOME TO ZeeMediLife\t ||\n\t\t\t\t\t\t\t\t-----------------------------------");
-    printf("\n\n\n\t\t\t\t\t\t\t\tZeeMediLife Life Insurance's main menu");
-    printf("\n\n\t\t\t\t\t\t\t\t\t1. Creat account");
-    printf("\n\t\t\t\t\t\t\t\t\t2. Admin Login");
-    printf("\n\t\t\t\t\t\t\t\t\t3. Costumer Login");
-    printf("\n\t\t\t\t\t\t\t\t\t4. Exit");
-    printf("\n\n\t\t\t\t\t\t\t\tCHOOSE YOUR SERVICE: ");
+    printf("\n\n\t-----------------------------------\n\t||\tWELCOME TO ZeeMediLife\t||\n\t-----------------------------------");
+    printf("\n\n");
+    printf("\n\t\t1. Creat account");
+    printf("\n\t\t2. Admin Login");
+    printf("\n\t\t3. Costumer Login");
+    printf("\n\t\t4. Exit\n");
+    printf("\n\tChoose your option: ");
     scanf("%d", &option);
     fflush(stdin);
     if (option == 1)
@@ -64,9 +64,9 @@ main:
     }
     else
     {
-        printf("\n\t\t\t\tInvalid optioin");
+        printf("\n\tInvalid optioin");
         char rm;
-        printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+        printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
         scanf("%s", &rm);
         if (rm == 'y' || rm == 'Y')
         {
@@ -100,16 +100,16 @@ void user_login()
     do
     {
         fn = fopen("subscribe.txt", "r");
-        printf("\t\t\t\t\t|| Login menu ||\n\n");
-        printf("\n\t\t\t\tEnter your ID:          ");
+        printf("\t|| Login menu ||\n\n");
+        printf("\n\tEnter your ID:          ");
         scanf("%d", &ID);
         fflush(stdin);
-        printf("\n\t\t\t\tEnter your Password:    ");
+        printf("\n\tEnter your Password:    ");
         gets(password_);
         fflush(stdin);
         if (fn == NULL)
         {
-            printf("\n\t\t\t\tFile could not be open");
+            printf("\n\tFile could not be open");
             return;
         }
 
@@ -119,16 +119,16 @@ void user_login()
             if ((ID == ID_db) && (strcmp(password_db, password_) == 0))
             {
                 fclose(fn);
-                printf("\n\n\n\t\t\t\tLogin Successfully!!!");
-                printf("\n\t\t\t\tPress any key to continue to the Menu");
+                printf("\n\tLogin Successfully!!!");
+                printf("\n\tPress any key to continue to the Menu");
                 getch();
                 user_menu(ID);
                 return;
             }
         }
 
-        printf("\n\t\t\t\tWrong username or password!!!\n\n\t\t\t\tTry again!!");
-        printf("\n\n\n\t\t\t\tDo you watnt to Try again? (y-yes | n-no): ");
+        printf("\n\tWrong username or password!!!\n\tTry again!!");
+        printf("\n\n\tDo you watnt to Try again? (y-yes | n-no): ");
         fclose(fn);
         scanf("%c", &_ch_);
         fflush(stdin);
@@ -151,14 +151,14 @@ void user_menu(int ID)
     int choose;
 top:
     system("cls");
-    printf("\n\n\n\t\t\t\t\t-------------------\n\t\t\t\t\t|| Costumer Menu ||\n\t\t\t\t\t-------------------\n\n");
-    printf("\n\n\t\t\t\t1. Subscribe plan");
-    printf("\n\t\t\t\t2. Claim");
-    printf("\n\t\t\t\t3. View transaction details");
-    printf("\n\t\t\t\t4. View details");
-    printf("\n\t\t\t\t5. view your plan details");
-    printf("\n\t\t\t\t6. Exit");
-    printf("\n\n\t\t\t\tSelect your option: ");
+    printf("\n\t-------------------\n\t|| Costumer Menu ||\n\t-------------------\n\n");
+    printf("\n\t1. Subscribe plan");
+    printf("\n\t2. Claim");
+    printf("\n\t3. View transaction details");
+    printf("\n\t4. View details");
+    printf("\n\t5. view your plan details");
+    printf("\n\t6. Exit");
+    printf("\n\n\tSelect your option: ");
     scanf("%d", &choose);
     fflush(stdin);
 
@@ -166,31 +166,31 @@ top:
     {
         subscribe_plan(ID);
         getch();
-        main();
+        user_menu(ID);
     }
     else if (choose == 2)
     {
         claim_process(ID);
         getch();
-        main();
+        user_menu(ID);
     }
     else if (choose == 3)
     {
         transaction_details(ID);
         getch();
-        main();
+        user_menu(ID);
     }
     else if (choose == 4)
     {
         costumer_data(ID);
         getch();
-        main();
+        user_menu(ID);
     }
     else if (choose == 5)
     {
         costumer_plan_type(ID);
         getch();
-        main();
+        user_menu(ID);
     }
     else if (choose == 6)
     {
@@ -199,9 +199,9 @@ top:
 
     else
     {
-        printf("\n\t\t\t\tInvalid optioin");
+        printf("\n\tInvalid optioin");
         char rm;
-        printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+        printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
         scanf("%s", &rm);
         if (rm == 'y' || rm == 'Y')
         {
@@ -223,22 +223,23 @@ void admin()
 
     while (1)
     {
-        printf("\n\n\t\t\t\tUsername: ");
+        printf("\n\n\t\t\t|| NOTE: USERNAME: admin and PASSWORD: admin@64 ||\n");
+        printf("\n\tUsername: ");
         scanf("%s", &username);
-        printf("\n\t\t\t\tPassword: ");
+        printf("\n\tPassword: ");
         scanf("%s", &passowrd);
 
         if (strcmp(password_db, passowrd) == 0 && strcmp(username_db, username) == 0)
         {
-            printf("\n\t\t\t\t Admin login successfully\n\n\n");
+            printf("\n\t Admin login successfully\n\n\n");
             admin_menu();
-            return;
+            // return;
         }
         else
         {
-            printf("\n\t\t\t\tWrong Id or password");
+            printf("\n\tWrong Id or password");
             char rm;
-            printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+            printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
             scanf("%s", &rm);
             if (rm == 'y' || rm == 'Y')
             {
@@ -257,28 +258,31 @@ void admin_menu()
     system("cls");
     int a;
 top:
-    printf("\n\n\n\n\t\t\t\t\t|| ADMIN MENU ||\n\n");
-    printf("\n\t\t\t\t1. View users");
-    printf("\n\t\t\t\t2. View user's plan");
-    printf("\n\t\t\t\t3. View user's transaction details");
-    printf("\n\t\t\t\t4. Exit");
-    printf("\n\n\t\t\t\t Enter your option please: ");
+    printf("\n\n\t\t|| ADMIN MENU ||\n\n");
+    printf("\n\t1. View users");
+    printf("\n\t2. View user's plan");
+    printf("\n\t3. View user's transaction details");
+    printf("\n\t4. Exit");
+    printf("\n\n\tEnter your option please: ");
     scanf("%d", &a);
 
     if (a == 1)
     {
         customer_details();
+        getch();
+        admin_menu();
     }
     else if (a == 2)
     {
         all_user();
         getch();
-        main();
+        admin_menu();
     }
     else if (a == 3)
     {
         transaction_details_admin();
-        return;
+        getch();
+        admin_menu();
     }
     else if (a == 4)
     {
@@ -286,9 +290,9 @@ top:
     }
     else
     {
-        printf("\n\t\t\t\tInvalid optioin");
+        printf("\n\tInvalid optioin");
         char rm;
-        printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+        printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
         scanf("%s", &rm);
         if (rm == 'y' || rm == 'Y')
         {
@@ -349,51 +353,51 @@ void create_account()
     //.................Creat account.......................//
 
     system("cls");
-    printf("\n\t\t\t\tEnter your first name:   ");
+    printf("\n\tEnter your first name:   ");
     gets(first_name);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your second name:  ");
+    printf("\n\tEnter your second name:  ");
     gets(second_name);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your Age:          ");
+    printf("\n\tEnter your Age:          ");
     scanf("%d", &_age);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your gender:       ");
+    printf("\n\tEnter your gender:       ");
     gets(_gender);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your city name:    ");
+    printf("\n\tEnter your city name:    ");
     gets(_city);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your phone number: ");
+    printf("\n\tEnter your phone number: ");
     gets(_number);
     fflush(stdin);
-    printf("\n\t\t\t\tEnter your Email:        ");
+    printf("\n\tEnter your Email:        ");
     gets(_email);
     fflush(stdin);
     system("cls");
     while (1)
     {
         system("cls");
-        printf("\t\t\t\tCreate password:      ");
+        printf("\tCreate password:      ");
         gets(_password);
         fflush(stdin);
-        printf("\n\t\t\t\tRetype your password: ");
+        printf("\n\tRetype your password: ");
         gets(_password_);
         fflush(stdin);
         if (strcmp(_password_, _password) == 0)
         {
             ID = generate_id();
-            printf("\n\t\t\t\tYour user id is: %d", ID);
-            printf("\n\t\t\t\tRemember your user ID and password!");
+            printf("\n\tYour user id is: %d", ID);
+            printf("\n\tRemember your user ID and password!");
             break;
         }
         else
         {
             system("cls");
             printf("\n\n");
-            printf("\t\t\t\tyou entered different passwords!!\n");
-            printf("\t\t\t\tplease try again\n\n");
-            printf("\t\t\t\tpress enter to continue!\n\n");
+            printf("\tyou entered different passwords!!\n");
+            printf("\tplease try again\n\n");
+            printf("\tpress enter to continue!\n\n");
             getch();
         }
     }
@@ -403,8 +407,9 @@ void create_account()
     fprintf(fn, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%15s\t%30s\t%10s\n", ID, first_name, second_name, _age, _gender, _city, _number, _email, _password);
 
     fclose(fn);
-    printf("\n\t\t\t\tAccount created Successfully");
+    printf("\n\tAccount created Successfully");
     getch();
+    return main();
 }
 
 int generate_id()
@@ -444,13 +449,13 @@ void claim(float expenses, int id)
     int id_f, age_f, day, month, year;
     char first_name[20], second_name[20], gender_f[5], city_f[20], plan_type[10], claim_type[10];
     float claimable_amount;
-    printf("\n\t\t\t\t %f\t%d", expenses, id);
+    // printf("\n\t\t\t\t %f\t%d", expenses, id);
     getch();
 
     fz = fopen("claim_type.txt", "r");
     if (fz == NULL)
     {
-        printf("\n\t\t\t\tFile could not be open");
+        printf("\n\tFile could not be open");
     }
 
     while (fscanf(fz, "%d %s %s %d %s %s %s %s %f %d %d %d\n", &id_f, first_name, second_name, &age_f, gender_f, city_f, plan_type, claim_type, &claimable_amount, &day, &month, &year) == 12)
@@ -461,17 +466,17 @@ void claim(float expenses, int id)
         {
             if (claimable_amount > expenses)
             {
-                printf("\t\t\\tHello world 2222");
+                // printf("\t\t\\tHello world 2222");
                 claimable_amount = claimable_amount - expenses;
-                printf("\n\t\t\t\tClaimed successfully");
+                printf("\n\tClaimed successfully");
                 fclose(fz);
                 update_transaction(id, expenses, first_name, second_name);
             }
             else if (claimable_amount < expenses)
             {
                 cl_amount = expenses - claimable_amount;
-                printf("\n\t\t\t\tYou can only claim only %f amount", claimable_amount);
-                printf("\n\t\t\t\tYou haven't able to claim %f amount because claimable balance doesnot cover all expenses", cl_amount);
+                printf("\n\tYou can only claim only %f amount", claimable_amount);
+                printf("\n\tYou haven't able to claim %f amount because claimable balance doesnot cover all expenses", cl_amount);
                 claimable_amount = 0;
                 fclose(fz);
                 update_transaction(id, claimable_amount, first_name, second_name);
@@ -488,10 +493,10 @@ void update_transaction(int _id, float _cost, char First_name[], char Second_nam
     time_t rawtime = time(NULL);
     struct tm *ptm;
     ptm = localtime(&rawtime);
-    fprintf(fy, "%d %5d %15s %s %10.2f %d/%d/%d\n", transaction_id(), _id, First_name, Second_name, _cost, ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
+    fprintf(fy, "%d %d %s %s %f %d %d %d\n",transaction_id(), _id, First_name, Second_name, _cost, ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
     fclose(fy);
     File_update(_cost, _id);
-    return;
+    return  user_menu(_id);
 }
 
 //...................function for generate transaction id.................//
@@ -506,13 +511,13 @@ int transaction_id()
 
     FILE *fn;
     fn = fopen("Transaction.txt", "r");
-    int ID = 0;
+    int ID = 1;
     while (fscanf(fn, "%d %d %s %s %f %d %d %d", &tr_id, &ID_db, first_name_f, second_name_f, &cost, &day, &month, &year) == 8)
     {
-        printf("\t\t\t\tUpdate transaction id");
-        if (ID_db > ID)
+        // printf("\tUpdate transaction id");
+        if (tr_id > ID)
         {
-            ID = ID_db;
+            ID = tr_id;
         }
     }
     fclose(fn);
@@ -524,8 +529,8 @@ void File_update(float _balance, int _id)
 
 {
     FILE *fk, *fn1;
-    printf("file update");
-    printf("%d %f", _id, _balance);
+    // printf("file update");
+    // printf("%d %f", _id, _balance);
     time_t rawtime = time(NULL);
     struct tm *ptm;
     int id_f;
@@ -538,14 +543,14 @@ void File_update(float _balance, int _id)
     fk = fopen("claim_type.txt", "r");
     if (fk == NULL)
     {
-        printf("\n\t\t\t\tFile could not be open!");
+        printf("\n\tFile could not be open!");
         return;
     }
 
     fn1 = fopen("claim_type_TMP.txt", "w");
     if (fn1 = NULL)
     {
-        printf("\n\t\t\t\tFile could not be open!");
+        printf("\n\tFile could not be open!");
         return;
     }
 
@@ -553,12 +558,12 @@ void File_update(float _balance, int _id)
     {
         if (_id == id_f)
         {
-            fprintf(fn1, "%d %15s %s %4d %10s %15s %10s %10s %10f %d/%d/%d\n", id_f, first_name, second_name, age_f, gender_f, city_f, plan_type, claim_type, _balance, ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
+            fprintf(fn1, "%d %15s %s %4d %10s %15s %10s %10s %10f %d/%d/%d\n", id_f, first_name, second_name, age_f, gender_f, city_f, plan_type, claim_type, _balance, ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
         }
 
         else
         {
-            fprintf(fn1, "%d\t%15s %s\t%4d %10s %15s %10s %10s %10f %d/%d/%d\n", id_f, first_name, second_name, age_f, gender_f, city_f, plan_type, claim_type, balance, ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
+            fprintf(fn1, "%d\t%15s %s\t%4d %10s %15s %10s %10s %10f %d/%d/%d\n", id_f, first_name, second_name, age_f, gender_f, city_f, plan_type, claim_type, balance, ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
         }
     }
 
@@ -566,12 +571,12 @@ void File_update(float _balance, int _id)
     fclose(fn1);
     if (!remove(new_name))
     {
-        printf("\n\t\t\t\tModifying File.......");
+        printf("\n\tModifying File.......");
         getch();
     }
     if (!rename(old_name, new_name))
     {
-        printf("\n\t\t\t\tFile saved successfully");
+        printf("\n\tFile saved successfully");
     }
     getch();
 }
@@ -584,30 +589,61 @@ void transaction_details_admin()
     int tr_id;
     char first_name[20];
     char second_name[20];
-    int cost;
+    float cost;
     int day, month, year;
     int id_f;
+    int choise;
+
 
     FILE *fn;
     fn = fopen("Transaction.txt", "r");
     if (fn == NULL)
     {
-        printf("\n\t\t\t\tFile could not be open!");
+        printf("\n\tFile could not be open!");
         getch();
         return;
     }
-    printf("Enter ID: ");
-    scanf("%d", &id_f);
-    while (fscanf(fn, "%d %d %s %s %f %d %d %d", &tr_id, &ID, first_name, second_name, &cost, &day, &month, &year) == 8)
-    {
-        printf("\t\t\t\tHELLO WORLD 2");
-        if (ID == id_f)
-        {
-            printf("%d %5d %15s %s %10f %5d/%d/%d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
-            getch();
-        }
 
+    printf("\t 1. View all transaction details.\n");
+    printf("\t 2. View specific customer transaction details.\n");
+    printf("\tChoose option: ");
+    scanf("%d", &choise);
+
+    if (choise == 1)
+    {
+        while (fscanf(fn, "%d %d %s %s %f %d %d %d", &tr_id, &ID, first_name, second_name, &cost, &day, &month, &year) == 8)
+        {
+            printf("%d %5d %10s %5s %10.2f %5d/%d/%d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
+        }
         fclose(fn);
+        getch();
+        return admin_menu();
+    }
+    else if (choise == 2)
+    {
+        printf("\n\n\tEnter ID: ");
+        scanf("%d", &id_f);
+        while (fscanf(fn, "%d %d %s %s %f %d %d %d", &tr_id, &ID, first_name, second_name, &cost, &day, &month, &year) == 8)
+        {
+            if (ID == id_f)
+            {
+                printf("%d %5d %10s %5s %10.2f %5d/%d/%d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
+            }
+
+            // else{
+            //     printf("\n\t Data not found..");
+            //     getch();
+            //     return admin_menu();
+            // }
+        }
+        fclose(fn);
+        getch();
+        return admin_menu();
+    }
+    else
+    {
+        printf("\n\tInvalid Input, Try again..");
+        return transaction_details_admin();
     }
 }
 
@@ -622,7 +658,7 @@ void costumer_plan_type(int id)
     fn = fopen("claim_type.txt", "r");
     if (fn == NULL)
     {
-        printf("File could not be open");
+        printf("\n\tFile could not be open");
         return;
     }
     // printf("\n\t\t\t\tPlease enter your ID: ");
@@ -634,10 +670,11 @@ void costumer_plan_type(int id)
         if (id == _id)
         {
             printf("\n%5d %15s %15s %4d %8s %10s %10s %10s %15.2f %5d/%d/%d\n", _id, f_name, s_name, age_f, gender, city, plan_type, claim_limit, _balance, day, month, year);
-            getch();
         }
     }
     fclose(fn);
+    getch();
+    return user_menu(id);
 }
 
 //.................transaction details for costumers.................//
@@ -646,7 +683,7 @@ void transaction_details(int ID)
     int tr_id;
     char first_name[20];
     char second_name[20];
-    int cost;
+    float cost;
     int day, month, year;
     int id_f;
 
@@ -654,22 +691,20 @@ void transaction_details(int ID)
     fn = fopen("Transaction.txt", "r");
     if (fn == NULL)
     {
-        printf("\n\t\t\t\tFile could not be open!");
+        printf("\n\tFile could not be open!");
         getch();
         return;
     }
-    printf("\t\t\t\tHELLO WORLD 1");
-    while (fscanf(fn, "%d %d %s %s %f %d %d %d\n", &tr_id, &ID, first_name, second_name, &cost, &day, &month, &year) == 8)
+    while (fscanf(fn, "%d %d %s %s %f %d %d %d\n", &tr_id, &id_f, first_name, second_name, &cost, &day, &month, &year) == 8)
     {
-        printf("\t\t\t\tHELLO WORLD 2");
         if (ID == id_f)
         {
-            printf("%d %5d %15s %s %10f %5d/%d/%d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
-            getch();
-            return;
+            printf("%d %5d %10s %5s %10.2f %5d/%d/%d\n", tr_id, ID, first_name, second_name, cost, day, month, year);
         }
     }
     fclose(fn);
+    getch();
+    return user_menu(ID);
 }
 
 //.........costumer data .............//
@@ -702,6 +737,8 @@ void costumer_data(int ID)
         }
     }
     fclose(fc);
+    getch();
+    return user_menu(ID);
 }
 
 //........view costumers details by admin.........//
@@ -740,6 +777,8 @@ customer_details:
             printf("\n%d %15s %s %4d %8s %15s %15s %30s %10s\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, number_f, _email, password_db);
         }
         fclose(fa);
+        getch();
+        return admin_menu();
     }
     else if (choose == 2)
     {
@@ -755,10 +794,12 @@ customer_details:
             }
         }
         fclose(fa);
+        getch();
+        return admin_menu();
     }
     else
     {
-        printf("\t\t\t\tInvalid option please try again....");
+        printf("\tInvalid option please try again....");
         getch();
         goto customer_details;
     }
@@ -809,7 +850,7 @@ void subscribe_plan(int ID)
     fb = fopen("subscribe.txt", "r");
     if (fb == NULL)
     {
-        printf("\t\t\t\tFile could not be open");
+        printf("\tFile could not be open");
     }
     fm = fopen("claim_type.txt", "a");
     if (fm == NULL)
@@ -823,7 +864,7 @@ void subscribe_plan(int ID)
         {
             if (age_f < 15 || age_f > 54)
             {
-                printf("\n\n\t\t\t\tSorry no service avaliable for you\n\n\t\t\t\t\"thank you for comming\"");
+                printf("\n\tSorry no service avaliable for you..");
                 break;
             }
 
@@ -848,7 +889,7 @@ void subscribe_plan(int ID)
                 printf("\n\t\t\t\tSurgical Fees\t\t\t\t\tAs Charged Subject to approval by ZeeMedLife\n\t\t\t\t-----------------------");
                 printf("\n\t\t\t\tOther Fees\n");
                 printf("\t\t\t\t*************************************************************************************************************************\n");
-                printf("\n\n\t\t\t\tPress any key to continue!");
+                printf("\tPress any key to continue!");
                 getch();
             }
             else if (age_f <= 20)
@@ -872,7 +913,7 @@ void subscribe_plan(int ID)
                 printf("\n\t\t\t\tSurgical Fees\t\t\t\t\tAs Charged Subject to approval by ZeeMedLife\n\t\t\t\t-----------------------");
                 printf("\n\t\t\t\tOther Fees\n");
                 printf("\t\t\t\t*************************************************************************************************************************\n");
-                printf("\n\n\t\t\t\tPress any key to continue!");
+                printf("\n\tPress any key to continue!");
                 getch();
             }
             else if (age_f >= 21 && age_f <= 40)
@@ -884,7 +925,7 @@ void subscribe_plan(int ID)
                 printf("\t\t\t\tAnnual Claim Limit\t\tNot Avaliable\t\t\t\t150,000\t\t\t\t\t200,000\n\n");
                 printf("\t\t\t\tLifetime Claim Limit\t\tNot Avaliable\t\t\t\t750,000\t\t\t\t\t1,000,000\n");
                 printf("\t\t\t\t*************************************************************************************************************************\n\n\n\n");
-                printf("\n\n\n\n\n\n\n\n\n\n\n\n\t\t\t\t\t\t\t\t\t\t|| Benifits ||\n\n");
+                printf("\n\n\t\t\t\t\t\t\t\t\t\t|| Benifits ||\n\n");
                 printf("\t\t\t\t*************************************************************************************************************************\n");
                 printf("\t\t\t\t\t\t\t\t\t\t\tEligibility Amount(RM)\n\t\t\t\tTypes of Claim\t  -------------------------------------------------------------------------------------------------------");
                 printf("\n\t\t\t\t\t\t\tPlan 120\t\t\t\tPlan 150\t\t\t\tplan200\n");
@@ -896,44 +937,45 @@ void subscribe_plan(int ID)
                 printf("\n\t\t\t\tSurgical Fees\t\t\t\t\tAs Charged Subject to approval by ZeeMedLife\n\t\t\t\t-----------------------");
                 printf("\n\t\t\t\tOther Fees\n");
                 printf("\t\t\t\t*************************************************************************************************************************\n");
-                printf("\n\n\t\t\t\tPress any key to continue!");
+                printf("\n\tPress any key to continue!");
                 getch();
             }
             else
             {
-                printf("\n\t\t\t\tYou are not eligible for Insurance!");
+                printf("\n\tYou are not eligible for Insurance!");
                 break;
             }
 
             system("cls");
         top:
-            printf("\n\t\t\t\tSelect your claim type\n");
-            printf("\n\t\t\t\t a.annual claim limit\n\t\t\t\t l.Lifetime claim limit\n\n");
-            printf("\n\n\t\t\t\tSelect your option: ");
+            printf("\n\tSelect your claim type\n");
+            printf("\n\t a.annual claim limit\n\t l.Lifetime claim limit\n\n");
+            printf("\n\n\tSelect your option: ");
             scanf("%s", &z);
             if (z == 'a')
             {
             top_head:
                 system("cls");
-                printf("\n\t\t\t\tyou have selected annual claim limit");
-                printf("\n\t\t\t\t 1.plan 120\n\t\t\t\t 2.Plan 150\n\t\t\t\t 3.plan 200");
-                printf("\n\n\t\t\t\tSelect your option: ");
+                printf("\n\tyou have selected annual claim limit");
+                printf("\n\t 1.plan 120\n\t 2.Plan 150\n\t 3.plan 200");
+                printf("\n\n\tSelect your option: ");
 
                 scanf("%d", &_choise_);
                 if (_choise_ == 1)
                 {
                     if (age_f <= 20)
                     {
-                        printf("\n\t\t\t\tYou have selected plan 120");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type, claim_type, claimable_amount[0], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\t Annually claimable amount : %.2f", claimable_amount[0]);
+                        printf("\n\tYou have selected plan 120");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type, claim_type, claimable_amount[0], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\t Annually claimable amount : %.2f", claimable_amount[0]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t You are not eligible");
+                        printf("\n\t Press any key to continue");
                         getch();
                         goto top_head;
                     }
@@ -943,16 +985,17 @@ void subscribe_plan(int ID)
                 {
                     if (age_f <= 40)
                     {
-                        printf("\n\t\t\t\tYou have selected plan:150");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type1, claim_type, claimable_amount[1], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tAnually claimable amount : %.2f", claimable_amount[1]);
+                        printf("\n\tYou have selected plan:150");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type1, claim_type, claimable_amount[1], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\tAnually claimable amount : %.2f", claimable_amount[1]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t You are not eligible");
+                        printf("\n\t Press any key to continue");
                         getch();
                         goto top_head;
                     }
@@ -962,24 +1005,25 @@ void subscribe_plan(int ID)
                 {
                     if (age_f <= 54)
                     {
-                        printf("\n\t\t\t\tYou have selected plan 200");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type2, claim_type, claimable_amount[2], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tAnually claimable amount : %.2f", claimable_amount[2]);
+                        printf("\n\tYou have selected plan 200");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type2, claim_type, claimable_amount[2], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\tAnually claimable amount : %.2f", claimable_amount[2]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t You are not eligible");
+                        printf("\n\t Press any key to continue");
                         getch();
                         goto top_head;
                     }
                 }
                 else
                 {
-                    printf("\n\t\t\t\tInvalid optioin");
-                    printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+                    printf("\n\tInvalid optioin");
+                    printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
                     scanf("%s", &rn);
                     if (rn == 'y' || rn == 'Y')
                     {
@@ -997,24 +1041,25 @@ void subscribe_plan(int ID)
             else if (z == 'l')
             {
             head_top:
-                printf("\n\t\t\t\tyou have selected lifetime claim limit");
-                printf("\n\t\t\t\t 1.plan 120\n\t\t\t\t 2.Plan 150\n\t\t\t\t 3.plan 200");
-                printf("\n\n\t\t\t\tSelect your option: ");
+                printf("\n\tyou have selected lifetime claim limit");
+                printf("\n\t 1.plan 120\n\t 2.Plan 150\n\t 3.plan 200");
+                printf("\n\n\tSelect your option: ");
                 scanf("%d", &_choise_);
                 if (_choise_ == 1)
                 {
                     if (age_f <= 20)
                     {
-                        printf("\n\t\t\t\tYou have selected plan:120");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type3, claim_type1, claimable_amount[3], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[3]);
+                        printf("\n\tYou have selected plan:120");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type3, claim_type1, claimable_amount[3], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\tLifetime claimable amount : %.2f", claimable_amount[3]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t You are not eligible");
+                        printf("\n\t Press any key to continue");
                         getch();
                         goto head_top;
                     }
@@ -1023,16 +1068,17 @@ void subscribe_plan(int ID)
                 {
                     if (age_f <= 40)
                     {
-                        printf("\n\t\t\t\tYou have selected plan 150");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type4, claim_type1, claimable_amount[4], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[4]);
+                        printf("\n\tYou have selected plan 150");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t%.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type4, claim_type1, claimable_amount[4], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\tLifetime claimable amount : %.2f", claimable_amount[4]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t You are not eligible");
+                        printf("\n\t Press any key to continue");
                         getch();
                         goto head_top;
                     }
@@ -1041,24 +1087,25 @@ void subscribe_plan(int ID)
                 {
                     if (age_f <= 54)
                     {
-                        printf("\n\t\t\t\tYou have selected plan:200");
-                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d%d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type5, claim_type1, claimable_amount[5], ptm->tm_mday, ptm->tm_mon, ptm->tm_year + 1900);
-                        printf("\n\n\t\t\t\tLifetime claimable amount : %.2f", claimable_amount[5]);
+                        printf("\n\tYou have selected plan:200");
+                        fprintf(fm, "%5d\t%15s\t%15s\t%4d\t%10s\t%15s\t%10s\t%10s\t %.2f\t%d %d %d\n", ID_db, first_name_f, second_name_f, age_f, gender_f, city_f, plan_type5, claim_type1, claimable_amount[5], ptm->tm_mday, ptm->tm_mon + 1, ptm->tm_year + 1900);
+                        printf("\n\n\tLifetime claimable amount : %.2f", claimable_amount[5]);
+                        getch();
                         fclose(fm);
                         return user_menu(ID);
                     }
                     else
                     {
-                        printf("\n\t\t\t\t You are not eligible");
+                        printf("\n\t You are not eligible");
                         getch();
-                        printf("\n\t\t\t\t Press any key to continue");
+                        printf("\n\t Press any key to continue");
                         goto head_top;
                     }
                 }
                 else
                 {
-                    printf("\n\t\t\t\tInvalid optioin");
-                    printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+                    printf("\n\tInvalid optioin");
+                    printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
                     scanf("%s", &rl);
                     if (rl == 'y' || rl == 'Y')
                     {
@@ -1073,8 +1120,8 @@ void subscribe_plan(int ID)
 
             else
             {
-                printf("\n\t\t\t\tInvalid optioin");
-                printf("\n\t\t\t\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
+                printf("\n\tInvalid optioin");
+                printf("\n\tDo you wanto to continue? | 'Y' for yes | and | 'N'| for No ");
                 scanf("%s", &rm);
                 if (rm == 'y' || rm == 'Y')
                 {
@@ -1112,8 +1159,8 @@ void all_user()
         printf("File could not be open");
     }
 you:
-    printf("\t\t\t\t1. choose costumer type\n\t\t\t\t2. All costumer");
-    printf("\n\t\t\t\tChoose your option: ");
+    printf("\t1. choose costumer type\n\t2. All costumer");
+    printf("\n\tChoose your option: ");
     scanf("%d", &option);
     fflush(stdin);
     if (option == 2)
@@ -1127,13 +1174,13 @@ you:
     else if (option == 1)
     {
     me:
-        printf("\t\t\t\t1. Search by ID and Age\n\t\t\t\t2. Search by claim limit and plan type");
-        printf("\n\t\t\t\tChoose your option: ");
+        printf("\t1. Search by ID and Age\n\t2. Search by claim limit and plan type");
+        printf("\n\tChoose your option: ");
         scanf("%d", &_option);
         fflush(stdin);
         if (_option == 1)
         {
-            printf("\t\t\t\tEnter Age or ID: ");
+            printf("\tEnter Age or ID: ");
             scanf("%d", &choose);
             fflush(stdin);
             while (fscanf(fd, "%d %s %s %d %s %s %s %s %f %d %d %d", &ID_db, first_name_f, second_name_f, &age_f, gender_f, city_f, plan_type, claim_limit, &balance_f, &day, &month, &year) == 12)
@@ -1147,7 +1194,7 @@ you:
         }
         else if (_option == 2)
         {
-            printf("\t\t\t\tEnter your claim limit or Plan type: ");
+            printf("\tEnter your claim limit or Plan type: ");
             scanf("%s", _choose);
             fflush(stdin);
             printf("%s", _choose);
@@ -1163,16 +1210,16 @@ you:
         }
         else
         {
-            printf("\t\t\t\tInvalid option");
-            printf("\t\t\t\tpress any key to continue\n");
+            printf("\tInvalid option");
+            printf("\n\tress any key to continue\n");
             getch();
             goto me;
         }
     }
     else
     {
-        printf("\n\t\t\t\tInvalid option");
-        printf("\n\t\t\t\tpress any key to continue\n");
+        printf("\n\tInvalid option");
+        printf("\n\tpress any key to continue\n");
         getch();
         goto you;
     }
@@ -1181,7 +1228,6 @@ you:
 //........claim process.............//
 void claim_process(int ID)
 {
-    // printf("HEllo world");
     FILE *fh;
     int days;
     char first_name_f[10];
@@ -1208,204 +1254,171 @@ void claim_process(int ID)
 
         if (ID == ID_db)
         {
-            // printf("\n\t\t\t\tSuccessfull\n");
-            // printf("%d %d", ID, ID_db);
-            // printf("%s %s", first_name_f, second_name_f);
-            if (balance_f == 750000.00 || balance_f == 150000.00)
+            // printf(plan_type);
+            if (strcmp(plan_type, "plan:150") == 0)
             {
-                printf("\n\t\t\t\tDid you use hospital room?\n");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                // printf("\t\t\t\tPlan type 150");
+                getch();
+                printf("\n\tDid you use hospital room?\n");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tHow many days do you spend in hospital rooms ?: ");
+                    printf("\n\tHow many days do you spend in hospital rooms ?: ");
                     scanf("%d", &days);
                     total_expenses = total_expenses + days * 150;
                 }
-                else
-                {
-                    printf("\n\t\t\t\tpress any key to continue");
-                    getch;
-                    continue;
-                }
+                
 
-                printf("\n\t\t\t\tDid you use ICU?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
+                printf("\n\tDid you use ICU?");
+                printf("\n\t1. Yes\n\t2. NO\n");
+                printf("\n\tChoose option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tHow many days do you use ICU?: ");
+                    printf("\n\tHow many days do you use ICU?: ");
                     scanf("%d", &days);
                     fflush(stdin);
                     total_expenses = total_expenses + (days * 400);
                 }
-                else
-                {
-                    printf("\n\t\t\t\tpress any key to continue..");
-                    getch;
-                }
+                
 
-                printf("\n\t\t\t\tAny surgery?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. No");
+                printf("\n\tAny surgery?\n");
+                printf("\n\t1. Yes\n\t2. No\n");
+                printf("\n\tChoose option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tEnter surgery fee: ");
+                    printf("\n\tEnter surgery fee: ");
                     scanf("%d", &sfee);
                     fflush(stdin);
                     total_expenses = total_expenses + sfee;
                 }
-                else
-                {
-                    printf("\n\t\t\t\tany key to continue");
-                    getch();
-                }
+                
+                
 
-                printf("\n\t\t\t\tHospital supplies and service fees: ");
+                printf("\n\tHospital supplies and service fees: ");
                 scanf("%d", &sefee);
                 fflush(stdin);
-                printf("\n\t\t\t\tOther fees: ");
+                printf("\n\tOther fees: ");
                 scanf("%d", &ofee);
                 fflush(stdin);
                 total_expenses = total_expenses + sefee + ofee;
-                printf("\n\t\t\t\tTotal expenses = %d", total_expenses);
+                printf("\n\tTotal expenses = %f", total_expenses);
                 claim(total_expenses, ID_db);
                 File_update(total_expenses, ID_db);
             }
-            else if (balance_f == 120000.00 || balance_f == 600000.00)
+            else if (strcmp(plan_type, "plan:120") == 0)
             {
-                printf("\n\t\t\t\tDid you use hospital room?\n");
-                printf("\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                printf("\n\tDid you use hospital room?\n");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tHow many days do you spend in hospital rooms ?: ");
+                    printf("\n\tHow many days do you spend in hospital rooms ?: ");
                     scanf("%d", &days);
                     fflush(stdin);
                     total_expenses = total_expenses + days * 120;
                 }
-                else
-                {
-                    printf("\n\t\t\t\tPress any key to continue...");
-                    getch();
-                }
+                
+                
 
-                printf("\n\t\t\t\tDid you use ICU?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                printf("\n\tDid you use ICU?");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
                     int Days;
-                    printf("\n\t\t\t\tHow many days do you use ICU?: ");
+                    printf("\n\tHow many days do you use ICU?: ");
                     scanf("%d", &days);
                     fflush(stdin);
                     total_expenses = total_expenses + (days * 250);
                 }
-                else
-                {
-                    printf("\n\t\t\t\tpress any key to continue..");
-                    getch;
-                }
-                printf("\n\t\t\t\tIf you did surgery?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                
+                printf("\n\tIf you did surgery?");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 if (opt == 1)
                 {
-                    printf("\t\t\t\tEnter surgery fee: ");
+                    printf("\n\tEnter surgery fee: ");
                     scanf("%d", &sfee);
                     fflush(stdin);
                     total_expenses = total_expenses + sfee;
                 }
-                else
-                {
-                    printf("any key to continue");
-                    getch();
-                }
+                
 
-                printf("\n\t\t\t\tHospital supplies and service fees: ");
+                printf("\n\tHospital supplies and service fees: ");
                 scanf("%d", &sefee);
                 fflush(stdin);
-                printf("\n\t\t\t\tOther fees: ");
+                printf("\n\tOther fees: ");
                 scanf("%d", &ofee);
                 fflush(stdin);
                 total_expenses = total_expenses + sefee + ofee;
-                printf("\n\t\t\t\tTotal expenses = %f", total_expenses);
+                printf("\n\tTotal expenses = %f", total_expenses);
                 claim(total_expenses, ID_db);
                 File_update(total_expenses, ID_db);
             }
 
-            else if (balance_f == 200000.00 || balance_f == 1000000.00)
+            else if (strcmp(plan_type, "plan:200") == 0)
             {
-                printf("\n\t\t\t\tDid you use hospital room?\n");
-                printf("\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                printf("\n\tDid you use hospital room?\n");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tHow many days do you spend in hospital rooms ?");
+                    printf("\n\tHow many days do you spend in hospital rooms ?");
                     scanf("%d", &days);
                     fflush(stdin);
                     total_expenses = total_expenses + days * 200;
                 }
-                else
-                {
-                    printf("\n\t\t\t\tPress any key to continue..");
-                    getch();
-                }
+                
 
-                printf("\n\t\t\t\tDid you use ICU?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                printf("\n\tDid you use ICU?");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\n\t\t\t\tHow many days do you use ICU?: ");
+                    printf("\n\tHow many days do you use ICU?: ");
                     scanf("%d", &days);
                     total_expenses = total_expenses + (days * 700);
                 }
-                else
-                {
-                    printf("\n\t\t\t\tpress any key to continue..");
-                    getch;
-                }
+                
 
-                printf("\t\t\t\tIf you did surgery?");
-                printf("\n\t\t\t\t1. Yes\n\t\t\t\t2. NO");
-                printf("\n\t\t\t\tSelect your option: ");
+                printf("\n\tAny surgery?");
+                printf("\n\t1. Yes\n\t2. NO");
+                printf("\n\tSelect your option: ");
                 scanf("%d", &opt);
                 fflush(stdin);
                 if (opt == 1)
                 {
-                    printf("\t\t\t\tEnter surgery fee: ");
+                    printf("\n\tEnter surgery fee: ");
                     scanf("%d", &sfee);
                     fflush(stdin);
                     total_expenses = total_expenses + sfee;
                 }
-                else
-                {
-                    printf("\n\t\t\t\tpress any key to continue");
-                    getch();
-                }
+                
 
-                printf("\n\t\t\t\tHospital supplies and service fees: ");
+                printf("\n\tHospital supplies and service fees: ");
                 scanf("%d", &sefee);
                 fflush(stdin);
-                printf("\n\t\t\t\tOther fees: ");
+                printf("\n\tOther fees: ");
                 scanf("%d", &ofee);
                 fflush(stdin);
                 total_expenses = total_expenses + sefee + ofee;
-                printf("\n\t\t\t\tTotal expenses = %f", total_expenses);
+                printf("\n\tTotal expenses = %f", total_expenses);
                 getch();
 
                 claim(total_expenses, ID_db);
