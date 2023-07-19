@@ -409,7 +409,6 @@ void creat_account()
 
 int ID_generate()
 {
-
     char password_[30];
     char password_db[30];
     int ID_db;
@@ -424,7 +423,9 @@ int ID_generate()
     FILE *fn;
     fn = fopen("subscribe.txt", "r");
     int ID = 1000;
-    while (fscanf(fn, "%d\t%s\t%s\t%d\t%s\t%s\t%s\t%s\t%s\n", &ID_db, first_name_f, second_name_f, &age_f, gender_f, city_f, number_f, _email, password_db) == 9)
+    while (fscanf(fn, "%d\t%s\t%s\t%d\t%s\t%s\t%s\t%s\t%s\n", &ID_db,
+    first_name_f, second_name_f, &age_f, gender_f, city_f, number_f, 
+    _email, password_db) == 9)
     {
         if (ID_db > ID)
         {
@@ -453,10 +454,9 @@ void claim(float expenses, int id)
         printf("\n\t\t\t\tFile could not be open");
     }
 
-    while (fscanf(fz, "%d %s %s %d %s %s %s %s %f %d %d %d\n", &id_f, first_name, second_name, &age_f, gender_f, city_f, plan_type, claim_type, &claimable_amount, &day, &month, &year) == 12)
+    while (fscanf(fz, "%d %s %s %d %s %s %s %s %f %d %d %d\n", &id_f, first_name, second_name, &age_f, gender_f,
+    city_f, plan_type, claim_type, &claimable_amount, &day, &month, &year) == 12)
     {
-
-        // printf("\n\t\t\t\t%d\t%f", id_f, claimable_amount);getch();
         if (id_f == id)
         {
             if (claimable_amount > expenses)
@@ -1093,7 +1093,6 @@ void Subscribe_Plan(int ID)
 
 void all_user()
 {
-
     FILE *fd;
     int choose, option, _option;
     char _choose[10];
@@ -1208,9 +1207,6 @@ void Claim_Process(int ID)
 
         if (ID == ID_db)
         {
-            // printf("\n\t\t\t\tSuccessfull\n");
-            // printf("%d %d", ID, ID_db);
-            // printf("%s %s", first_name_f, second_name_f);
             if (balance_f == 750000.00 || balance_f == 150000.00)
             {
                 printf("\n\t\t\t\tDid you use hospital room?\n");
